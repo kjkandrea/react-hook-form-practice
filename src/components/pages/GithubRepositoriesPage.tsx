@@ -6,7 +6,7 @@ interface GithubRepositoryPath {
   repo: string;
 }
 
-const indexingGithubRepositoryPaths: Array<GithubRepositoryPath> = [
+const githubRepositoryPaths: Array<GithubRepositoryPath> = [
   {
     owner: 'facebook',
     repo: 'react',
@@ -22,7 +22,7 @@ export default function GithubRepositoriesPage() {
     <div className="App">
       <h1>🌏 Exploring GitHub Repository Issues</h1>
       <ul>
-        {indexingGithubRepositoryPaths.map(({owner, repo}) => (
+        {githubRepositoryPaths.map(({owner, repo}) => (
           <li key={repo}>
             <NavLink to={`/issues/${owner}/${repo}`}>{repo} Issues</NavLink>
           </li>
