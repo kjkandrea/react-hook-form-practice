@@ -20,7 +20,7 @@ const indexingGithubRepositoryPaths: Array<GithubRepositoryPath> = [
 export default function GithubRepositoriesPage() {
   return (
     <div className="App">
-      <h1>Root</h1>
+      <h1>🌏 Exploring GitHub Repository Issues</h1>
       <ul>
         {indexingGithubRepositoryPaths.map(({owner, repo}) => (
           <li key={repo}>
