@@ -1,5 +1,6 @@
 import {useIssuesQuery} from '@/hooks/queries/issue';
 import {useParams} from 'react-router-dom';
+import IssueSearchForm from '@/components/forms/IssueSearchForm';
 
 export default function IssuesPage() {
   const {owner, repo} = useParams();
@@ -9,6 +10,7 @@ export default function IssuesPage() {
   return (
     <div className="App">
       <h1>issues</h1>
+      <IssueSearchForm />
       <ul>
         {issues?.map(issue => {
           return (
