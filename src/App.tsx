@@ -1,9 +1,12 @@
 import {useState} from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
+import {octoHttp} from './infrastructure/octoHttp';
 
 function App() {
   const [count, setCount] = useState(0);
+
+  console.log(octoHttp);
 
   return (
     <div className="App">
