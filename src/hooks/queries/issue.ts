@@ -5,8 +5,8 @@ export const useIssuesQuery = () =>
   useQuery(['issues'], () =>
     octoHttp
       .request('GET /repos/{owner}/{repo}/issues', {
-        owner: 'octocat',
-        repo: 'Spoon-Knife',
+        owner: 'facebook',
+        repo: 'react',
       })
       .then(({data}) => data)
   );
