@@ -1,7 +1,7 @@
 import '@/App.css';
 import {useIssuesQuery} from '@/hooks/queries/issue';
 
-function App() {
+export default function RootPage() {
   const {data: issues} = useIssuesQuery();
 
   return (
@@ -19,5 +19,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
