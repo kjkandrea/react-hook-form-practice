@@ -1,8 +1,10 @@
-import '@/App.css';
 import {useIssuesQuery} from '@/hooks/queries/issue';
+import {useParams} from 'react-router-dom';
 
-export default function RootPage() {
-  const {data: issues} = useIssuesQuery();
+export default function IssuesPage() {
+  const {owner, repo} = useParams();
+  if (!owner || !repo) return null;
+  const {data: issues} = useIssuesQuery({owner, repo});
 
   return (
     <div className="App">

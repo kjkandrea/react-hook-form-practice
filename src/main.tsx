@@ -4,7 +4,8 @@ import './index.css';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import '@/App.css';
-import RootPage from '@/components/pages/RootPage';
+import GithubRepositoriesPage from '@/components/pages/GithubRepositoriesPage';
+import IssuesPage from '@/components/pages/IssuesPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,7 +18,11 @@ const queryClient = new QueryClient({
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootPage />,
+    element: <GithubRepositoriesPage />,
+  },
+  {
+    path: '/issues/:owner/:repo',
+    element: <IssuesPage />,
   },
 ]);
 
