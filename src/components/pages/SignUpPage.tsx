@@ -4,7 +4,6 @@ import {
   useForm,
   FormProvider,
   RegisterOptions,
-  useFormContext,
 } from 'react-hook-form';
 import regex from '@/const/regex';
 
@@ -36,12 +35,7 @@ const makePasswordRegisterOptions = (fieldName: string): RegisterOptions => ({
  * password 는 RegisterPasswordFieldSet 개념으로 그룹핑 시도해보기
  */
 export default function SignUpPage() {
-  const methods = useFormContext<SignUpFormValues>();
-  const {
-    register,
-    formState: {errors},
-    handleSubmit,
-  } = useForm<SignUpFormValues>({
+  const methods = useForm<SignUpFormValues>({
     mode: 'onTouched',
   });
 
@@ -52,40 +46,27 @@ export default function SignUpPage() {
     <FormProvider {...methods}>
       <div>
         <h1>Sign Up</h1>
-        <Form onSubmit={handleSubmit(onSubmit)} noValidate>
-          <Form.Input
-            id="email"
-            type="email"
-            label="이메일"
-            placeholder="example@email.com"
-            {...register('email', {
-              pattern: {
-                value: regex.email,
-                message: '올바른 이메일을 입력하여주세요. 🙏',
-              },
-              required: '이메일을 입력하여주세요. 🙏',
-            })}
-            helperText={errors.email?.message}
-          />
-          <Form.Input
-            id="password"
-            type="password"
-            label="비밀번호"
-            placeholder="******"
-            {...register('password', makePasswordRegisterOptions('비밀번호'))}
-            helperText={errors.password?.message}
-          />
-          <Form.Input
-            id="confirm-password"
-            type="password"
-            label="비밀번호 확인"
-            placeholder="******"
-            {...register(
-              'confirmPassword',
-              makePasswordRegisterOptions('비밀번호 확인')
-            )}
-            helperText={errors.confirmPassword?.message}
-          />
+        <Form onSubmit={methods.handleSubmit(onSubmit)} noValidate>
+          <Form.EmailInput label="이메일" />
+          {/*<Form.Input*/}
+          {/*  id="password"*/}
+          {/*  type="password"*/}
+          {/*  label="비밀번호"*/}
+          {/*  placeholder="******"*/}
+          {/*  {...register('password', makePasswordRegisterOptions('비밀번호'))}*/}
+          {/*  helperText={errors.password?.message}*/}
+          {/*/>*/}
+          {/*<Form.Input*/}
+          {/*  id="confirm-password"*/}
+          {/*  type="password"*/}
+          {/*  label="비밀번호 확인"*/}
+          {/*  placeholder="******"*/}
+          {/*  {...register(*/}
+          {/*    'confirmPassword',*/}
+          {/*    makePasswordRegisterOptions('비밀번호 확인')*/}
+          {/*  )}*/}
+          {/*  helperText={errors.confirmPassword?.message}*/}
+          {/*/>*/}
           <Form.Button type="submit">가입하기</Form.Button>
         </Form>
       </div>
