@@ -1,5 +1,10 @@
 import Form from '@/components/forms/Form/Form';
 
+/**
+ * TODO
+ *
+ * password 는 RegisterPasswordFieldSet 개념으로 그룹핑 시도해보기
+ */
 export default function SignUpPage() {
   return (
     <div>
