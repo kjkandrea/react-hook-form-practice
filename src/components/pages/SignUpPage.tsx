@@ -28,6 +28,7 @@ export default function SignUpPage() {
           label="비밀번호 확인"
           placeholder="******"
         />
+        <Form.Button type="submit">가입하기</Form.Button>
       </Form>
     </div>
   );
