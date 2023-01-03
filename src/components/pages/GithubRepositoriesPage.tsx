@@ -20,14 +20,24 @@ const githubRepositoryPaths: Array<GithubRepositoryPath> = [
 export default function GithubRepositoriesPage() {
   return (
     <div className="App">
-      <h1>🌏 Exploring GitHub Repository Issues</h1>
-      <ul>
-        {githubRepositoryPaths.map(({owner, repo}) => (
-          <li key={repo}>
-            <NavLink to={`/issues/${owner}/${repo}`}>{repo} Issues</NavLink>
+      <section>
+        <h2>🌏 Exploring GitHub Repository Issues</h2>
+        <ul>
+          {githubRepositoryPaths.map(({owner, repo}) => (
+            <li key={repo}>
+              <NavLink to={`/issues/${owner}/${repo}`}>{repo} Issues</NavLink>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section>
+        <h2>📝 Other Pages</h2>
+        <ul>
+          <li>
+            <NavLink to="/sign-up">Sign Up</NavLink>
           </li>
-        ))}
-      </ul>
+        </ul>
+      </section>
     </div>
   );
 }
