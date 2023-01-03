@@ -12,7 +12,7 @@ const makePasswordRegisterOptions = (fieldName: string): RegisterOptions => ({
   required: `${fieldName} 를 입력하여주세요. 🙏`,
   pattern: {
     value: regex.password,
-    message: '숫자, 대문자, 소문자, 특수문자 를 조합하여 입력하여주세요. 🙏',
+    message: '숫자, 영문, 특수문자 를 조합하여 입력하여주세요. 🙏',
   },
   minLength: {
     value: 8,
@@ -37,7 +37,7 @@ export default function SignUpPage() {
   } = useForm<SignUpFormValues>({
     mode: 'onTouched',
   });
-  const onSubmit: SubmitHandler<SignUpFormValues> = data => console.log(data);
+  const onSubmit: SubmitHandler<SignUpFormValues> = data => alert(data);
 
   return (
     <div>
