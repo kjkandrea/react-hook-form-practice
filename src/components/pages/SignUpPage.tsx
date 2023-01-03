@@ -5,7 +5,11 @@ export default function SignUpPage() {
     <div>
       <h1>Sign Up</h1>
       <Form>
-        <Form.Input />
+        <Form.Input
+          type="email"
+          label="이메일"
+          placeholder="example@email.com"
+        />
       </Form>
     </div>
   );
