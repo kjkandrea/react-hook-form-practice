@@ -11,6 +11,7 @@ export default function SignUpPage() {
       <h1>Sign Up</h1>
       <Form onSubmit={e => e.preventDefault()}>
         <Form.Input
+          ref={inputElem => inputElem?.focus()}
           id="email"
           type="email"
           label="이메일"
