@@ -11,12 +11,19 @@ export default function SignUpPage() {
       <h1>Sign Up</h1>
       <Form>
         <Form.Input
+          id="email"
           type="email"
           label="이메일"
           placeholder="example@email.com"
         />
-        <Form.Input type="password" label="비밀번호" placeholder="******" />
         <Form.Input
+          id="password"
+          type="password"
+          label="비밀번호"
+          placeholder="******"
+        />
+        <Form.Input
+          id="password-repeat"
           type="password"
           label="비밀번호 확인"
           placeholder="******"

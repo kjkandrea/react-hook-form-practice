@@ -1,16 +1,15 @@
-import {HTMLInputTypeAttribute} from 'react';
+import {HTMLInputTypeAttribute, InputHTMLAttributes} from 'react';
 
-interface FormInputProps {
+interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: Extract<HTMLInputTypeAttribute, 'text' | 'email' | 'password'>;
   label?: string;
-  placeholder?: string;
 }
 
-export default function FormInput({label, placeholder, type}: FormInputProps) {
+export default function FormInput({label, id, ...rest}: FormInputProps) {
   return (
     <div>
-      {label && <label>{label}</label>}
-      <input type={type} placeholder={placeholder} />
+      {label && <label htmlFor={id}>{label}</label>}
+      <input id={id} {...rest} />
     </div>
   );
 }
