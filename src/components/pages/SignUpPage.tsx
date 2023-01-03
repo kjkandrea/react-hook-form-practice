@@ -37,7 +37,8 @@ export default function SignUpPage() {
   } = useForm<SignUpFormValues>({
     mode: 'onTouched',
   });
-  const onSubmit: SubmitHandler<SignUpFormValues> = data => alert(data);
+  const onSubmit: SubmitHandler<SignUpFormValues> = data =>
+    alert(JSON.stringify(data));
 
   return (
     <div>
