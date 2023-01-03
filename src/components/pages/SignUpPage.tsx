@@ -5,7 +5,7 @@ import regex from '@/const/regex';
 interface SignUpFormValues {
   email: string;
   password: string;
-  passwordRepeat: string;
+  confirmPassword: string;
 }
 
 /**
@@ -47,14 +47,14 @@ export default function SignUpPage() {
           helperText={errors.password?.message}
         />
         <Form.Input
-          id="password-repeat"
+          id="confirm-password"
           type="password"
           label="비밀번호 확인"
           placeholder="******"
-          {...register('passwordRepeat', {
+          {...register('confirmPassword', {
             required: '패스워드 확인을 입력하여주세요. 🙏',
           })}
-          helperText={errors.passwordRepeat?.message}
+          helperText={errors.confirmPassword?.message}
         />
         <Form.Button type="submit">가입하기</Form.Button>
       </Form>
