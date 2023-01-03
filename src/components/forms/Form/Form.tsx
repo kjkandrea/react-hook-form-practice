@@ -1,13 +1,13 @@
 import FormInput from '@/components/forms/Form/partials/FormInput';
 import FormButton from '@/components/forms/Form/partials/FormButton';
-import {ReactNode} from 'react';
+import {FormHTMLAttributes, ReactNode} from 'react';
 
-interface FormProps {
+interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children: ReactNode;
 }
 
-function Form({children}: FormProps) {
-  return <form>{children}</form>;
+function Form({children, ...rest}: FormProps) {
+  return <form {...rest}>{children}</form>;
 }
 
 Form.Input = FormInput;

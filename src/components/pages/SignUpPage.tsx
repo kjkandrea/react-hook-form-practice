@@ -9,7 +9,7 @@ export default function SignUpPage() {
   return (
     <div>
       <h1>Sign Up</h1>
-      <Form>
+      <Form onSubmit={e => e.preventDefault()}>
         <Form.Input
           id="email"
           type="email"
