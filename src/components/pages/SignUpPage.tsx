@@ -33,8 +33,8 @@ export default function SignUpPage() {
             pattern:
               /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/,
           })}
+          helperText={errors.email && '올바른 이메일을 입력하여주세요. 🙏'}
         />
-        {errors.email && '올바른 이메일을 입력하여주세요. 🙏'}
         <Form.Input
           id="password"
           type="password"

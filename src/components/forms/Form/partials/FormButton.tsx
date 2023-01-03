@@ -1,6 +1,6 @@
 import {ButtonHTMLAttributes, forwardRef, ReactNode, Ref} from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface FormButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type: Extract<
     ButtonHTMLAttributes<HTMLButtonElement>['type'],
     'button' | 'submit'
@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const FormButton = forwardRef(
-  ({children, ...rest}: ButtonProps, ref: Ref<HTMLButtonElement>) => {
+  ({children, ...rest}: FormButtonProps, ref: Ref<HTMLButtonElement>) => {
     return (
       <button {...rest} ref={ref}>
         {children}

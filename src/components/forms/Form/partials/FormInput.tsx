@@ -8,14 +8,19 @@ import {
 interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: Extract<HTMLInputTypeAttribute, 'text' | 'email' | 'password'>;
   label?: string;
+  helperText?: string;
 }
 
 const FormInput = forwardRef(
-  ({label, id, ...rest}: FormInputProps, ref: Ref<HTMLInputElement>) => {
+  (
+    {label, id, helperText, ...rest}: FormInputProps,
+    ref: Ref<HTMLInputElement>
+  ) => {
     return (
       <div>
         {label && <label htmlFor={id}>{label}</label>}
         <input id={id} ref={ref} {...rest} />
+        {helperText && <p>{helperText}</p>}
       </div>
     );
   }
