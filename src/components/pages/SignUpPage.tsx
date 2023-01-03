@@ -13,20 +13,28 @@ interface SignUpFormValues {
  * password 는 RegisterPasswordFieldSet 개념으로 그룹핑 시도해보기
  */
 export default function SignUpPage() {
-  const {register, handleSubmit} = useForm<SignUpFormValues>();
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm<SignUpFormValues>();
   const onSubmit: SubmitHandler<SignUpFormValues> = data => console.log(data);
 
   return (
     <div>
       <h1>Sign Up</h1>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)} noValidate>
         <Form.Input
           id="email"
           type="email"
           label="이메일"
           placeholder="example@email.com"
-          {...register('email')}
+          {...register('email', {
+            pattern:
+              /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/,
+          })}
         />
+        {errors.email && '올바른 이메일을 입력하여주세요. 🙏'}
         <Form.Input
           id="password"
           type="password"
