@@ -1,4 +1,4 @@
-import {ButtonHTMLAttributes, ReactNode} from 'react';
+import {ButtonHTMLAttributes, forwardRef, ReactNode, Ref} from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type: Extract<
@@ -8,6 +8,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-export default function FormButton({children, ...rest}: ButtonProps) {
-  return <button {...rest}>{children}</button>;
-}
+const FormButton = forwardRef(
+  ({children, ...rest}: ButtonProps, ref: Ref<HTMLButtonElement>) => {
+    return (
+      <button {...rest} ref={ref}>
+        {children}
+      </button>
+    );
+  }
+);
+
+export default FormButton;
