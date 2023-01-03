@@ -22,3 +22,6 @@ Dot Notation 으로 구성된 React 컴포넌트로 각 필드들을 `Field.Emai
 
 * queryParam 바인딩 등 검색 양식이 갖추어야하는 세부사항을 은닉하고 싶다.
 
+## 생각상자 📦
+
+상위 레벨에서 `element.focus()` 등이 불가피할것같은데 forwardRef 를 통해 Field 컴포넌트를 노출시켜야..?
