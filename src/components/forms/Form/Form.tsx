@@ -1,5 +1,5 @@
-import FormInput from '@/components/forms/Form/partials/FormInput';
-import FormButton from '@/components/forms/Form/partials/FormButton';
+import FormInput from '@/components/forms/Form/FormInput';
+import FormButton from '@/components/forms/Form/FormButton';
 import {FormHTMLAttributes, ReactNode} from 'react';
 
 interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
