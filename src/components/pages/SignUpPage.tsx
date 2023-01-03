@@ -1,5 +1,5 @@
 import Form from '@/components/forms/Form/Form';
-import {SubmitHandler, useForm} from 'react-hook-form';
+import {SubmitHandler, useForm, RegisterOptions} from 'react-hook-form';
 import regex from '@/const/regex';
 
 interface SignUpFormValues {
@@ -7,6 +7,18 @@ interface SignUpFormValues {
   password: string;
   confirmPassword: string;
 }
+
+const makePasswordRegisterOptions = (fieldName: string): RegisterOptions => ({
+  required: `${fieldName} 를 입력하여주세요. 🙏`,
+  minLength: {
+    value: 8,
+    message: `${fieldName} 를 8자 이상 입력하여 주세요. 🙏`,
+  },
+  maxLength: {
+    value: 20,
+    message: `${fieldName} 를 20자 이하로 입력하여 주세요. 🙏`,
+  },
+});
 
 /**
  * TODO
@@ -41,9 +53,7 @@ export default function SignUpPage() {
           type="password"
           label="비밀번호"
           placeholder="******"
-          {...register('password', {
-            required: '패스워드를 입력하여주세요. 🙏',
-          })}
+          {...register('password', makePasswordRegisterOptions('비밀번호'))}
           helperText={errors.password?.message}
         />
         <Form.Input
@@ -51,9 +61,10 @@ export default function SignUpPage() {
           type="password"
           label="비밀번호 확인"
           placeholder="******"
-          {...register('confirmPassword', {
-            required: '패스워드 확인을 입력하여주세요. 🙏',
-          })}
+          {...register(
+            'confirmPassword',
+            makePasswordRegisterOptions('비밀번호 확인')
+          )}
           helperText={errors.confirmPassword?.message}
         />
         <Form.Button type="submit">가입하기</Form.Button>
