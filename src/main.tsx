@@ -7,6 +7,7 @@ import '@/App.css';
 import GithubRepositoriesPage from '@/components/pages/GithubRepositoriesPage';
 import IssuesPage from '@/components/pages/IssuesPage';
 import SignUpPage from '@/components/pages/SignUpPage';
+import 'reset-css';
 
 const queryClient = new QueryClient({
   defaultOptions: {
