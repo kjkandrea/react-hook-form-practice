@@ -8,6 +8,7 @@ import RoutesPage from '@/components/pages/RoutesPage';
 import IssuesPage from '@/components/pages/IssuesPage';
 import SignUpPage from '@/components/pages/SignUpPage';
 import 'reset-css';
+import SignInPage from '@/components/pages/SignInPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/issues/:owner/:repo',
     element: <IssuesPage />,
+  },
+  {
+    path: '/sign-in',
+    element: <SignInPage />,
   },
   {
     path: '/sign-up',
