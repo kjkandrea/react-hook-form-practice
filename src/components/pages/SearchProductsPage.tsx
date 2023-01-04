@@ -3,31 +3,29 @@ import {SubmitHandler, useForm, FormProvider} from 'react-hook-form';
 import {ProductNameValues} from '@/components/Form/predefined/fields/ProductNameField';
 import {
   SortOrder,
+  sortOrderOptions,
   SortOrderValues,
 } from '@/components/Form/predefined/fields/SortOrderField';
 import {
   ProductSortBy,
+  productSortByOptions,
   ProductSortByValues,
 } from '@/components/Form/predefined/fields/ProductSortByField';
 import {createEnumParam, StringParam, useQueryParams} from 'use-query-params';
-import {omitEmptyQuery} from '@/utils/omitNil';
+import {omitEmptyQuery} from '@/utils/omitEmptyQuery';
+import {pluck} from '@/utils/pluck';
 
 type SearchProductsQueryValues = ProductNameValues &
   ProductSortByValues &
   SortOrderValues;
 
 export default function SearchProductsPage() {
-  // TODO : 이걸 어떻게 은닉한담??
   const [queryParams, setQueryParams] = useQueryParams({
     productName: StringParam,
-    productSortBy: createEnumParam<ProductSortBy>([
-      'registered_date',
-      'name',
-      'amount',
-      'sales_count',
-      'stock_count',
-    ]),
-    sortOrder: createEnumParam<SortOrder>(['asc', 'desc']),
+    productSortBy: createEnumParam<ProductSortBy>(
+      pluck(productSortByOptions, 'value')
+    ),
+    sortOrder: createEnumParam<SortOrder>(pluck(sortOrderOptions, 'value')),
   });
 
   const methods = useForm<SearchProductsQueryValues>({

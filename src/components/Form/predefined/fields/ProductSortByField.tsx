@@ -13,7 +13,7 @@ export interface ProductSortByValues {
   productSortBy: ProductSortBy;
 }
 
-const productSortByOptions: Array<Option<ProductSortBy>> = [
+export const productSortByOptions: Array<Option<ProductSortBy>> = [
   {
     label: '등록일순',
     value: 'registered_date',

@@ -8,7 +8,7 @@ export interface SortOrderValues {
   sortOrder: SortOrder;
 }
 
-const sortOrderOptions: Array<Option<SortOrder>> = [
+export const sortOrderOptions: Array<Option<SortOrder>> = [
   {
     label: '오름차순',
     value: 'asc',
