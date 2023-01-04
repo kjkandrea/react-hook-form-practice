@@ -17,7 +17,7 @@ const githubRepositoryPaths: Array<GithubRepositoryPath> = [
   },
 ];
 
-export default function GithubRepositoriesPage() {
+export default function RoutesPage() {
   return (
     <div className="App">
       <section>

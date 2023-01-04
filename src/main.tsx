@@ -4,7 +4,7 @@ import './index.css';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import '@/App.css';
-import GithubRepositoriesPage from '@/components/pages/GithubRepositoriesPage';
+import RoutesPage from '@/components/pages/RoutesPage';
 import IssuesPage from '@/components/pages/IssuesPage';
 import SignUpPage from '@/components/pages/SignUpPage';
 import 'reset-css';
@@ -20,7 +20,7 @@ const queryClient = new QueryClient({
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <GithubRepositoriesPage />,
+    element: <RoutesPage />,
   },
   {
     path: '/issues/:owner/:repo',
