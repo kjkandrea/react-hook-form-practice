@@ -2,7 +2,7 @@ import regex from '@/const/regex';
 import Form from '@/components/forms/Form/Form';
 import {useFormContext} from 'react-hook-form';
 
-interface EmailValues {
+export interface EmailValues {
   email: string;
 }
 
