@@ -21,7 +21,7 @@ export default function SearchProductsPage() {
           <Form.ProductNameField />
           <Form.ProductSortByField />
           <Form.OrderByField />
-          상품 카테고리, 재고 수<Form.Button type="submit">검색</Form.Button>
+          <Form.Button type="submit">검색</Form.Button>
         </Form>
       </div>
     </FormProvider>
