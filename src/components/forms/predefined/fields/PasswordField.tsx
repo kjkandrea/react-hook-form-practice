@@ -6,11 +6,11 @@ export interface PasswordValues {
   password: string;
 }
 
-interface PasswordInputProps {
+interface PasswordFieldProps {
   label: string;
 }
 
-export default function PasswordInput({label}: PasswordInputProps) {
+export default function PasswordField({label}: PasswordFieldProps) {
   const {
     register,
     formState: {errors},

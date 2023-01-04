@@ -6,11 +6,11 @@ export interface EmailValues {
   email: string;
 }
 
-interface EmailInputProps {
+interface EmailFieldProps {
   label: string;
 }
 
-export default function EmailInput({label}: EmailInputProps) {
+export default function EmailField({label}: EmailFieldProps) {
   const {
     register,
     formState: {errors},

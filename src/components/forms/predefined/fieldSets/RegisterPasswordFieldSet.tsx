@@ -1,8 +1,8 @@
 import Form from '@/components/forms/Form/Form';
 import {useFormContext} from 'react-hook-form';
-import PasswordInput, {
+import PasswordField, {
   PasswordValues,
-} from '@/components/forms/predefined/fields/PasswordInput';
+} from '@/components/forms/predefined/fields/PasswordField';
 
 export interface RegisterPasswordValues extends PasswordValues {
   confirmPassword: string;
@@ -17,7 +17,7 @@ export default function RegisterPasswordFieldSet() {
 
   return (
     <Form.FieldSet name="register-password">
-      <PasswordInput label="비밀번호" />
+      <PasswordField label="비밀번호" />
       <Form.Input
         id="confirm-password"
         type="password"
