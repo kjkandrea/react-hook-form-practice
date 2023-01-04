@@ -4,11 +4,7 @@ import {EmailValues} from '@/components/forms/fields/EmailInput';
 import {RegisterPasswordValues} from '@/components/forms/fieldSets/RegisterPasswordFieldSet';
 
 type SignUpFormValues = EmailValues & RegisterPasswordValues;
-/**
- * TODO
- *
- * password 는 RegisterPasswordFieldSet 개념으로 그룹핑 시도해보기
- */
+
 export default function SignUpPage() {
   const methods = useForm<SignUpFormValues>({
     mode: 'onSubmit',
