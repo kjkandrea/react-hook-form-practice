@@ -29,7 +29,7 @@ export default function SearchProductsPage() {
   });
 
   const methods = useForm<SearchProductsQueryValues>({
-    mode: 'onBlur',
+    mode: 'onSubmit',
     defaultValues: omitEmptyQuery(
       queryParams
     ) as Partial<SearchProductsQueryValues>,
