@@ -7,7 +7,6 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      'node-fetch': 'isomorphic-fetch',
       '@': path.resolve(__dirname, './src'),
     },
   },

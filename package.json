@@ -16,12 +16,12 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
-    "octokit": "^2.0.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.3",
     "react-router-dom": "^6.6.1",
-    "reset-css": "^5.0.1"
+    "reset-css": "^5.0.1",
+    "use-query-params": "^2.1.2"
   },
   "devDependencies": {
     "@types/node": "^14.11.2",

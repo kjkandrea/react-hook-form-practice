@@ -3,6 +3,7 @@ import {SubmitHandler, useForm, FormProvider} from 'react-hook-form';
 import {ProductNameValues} from '@/components/forms/predefined/fields/ProductNameField';
 import {SortOrderValues} from '@/components/forms/predefined/fields/SortOrderField';
 import {ProductSortByValues} from '@/components/forms/predefined/fields/ProductSortByField';
+import {StringParam, useQueryParams} from 'use-query-params';
 
 type SearchProductsQueryValues = ProductNameValues &
   ProductSortByValues &
@@ -17,8 +18,17 @@ export default function SearchProductsPage() {
     },
   });
 
-  const onSubmit: SubmitHandler<SearchProductsQueryValues> = data =>
+  const [queryParams, setQueryParams] = useQueryParams({
+    productName: StringParam,
+    productSortBy: StringParam,
+    sortOrder: StringParam,
+  });
+
+  const onSubmit: SubmitHandler<SearchProductsQueryValues> = data => {
+    setQueryParams(data);
+    console.log(queryParams);
     alert(JSON.stringify(data));
+  };
 
   return (
     <FormProvider {...methods}>
