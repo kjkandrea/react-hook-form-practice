@@ -1,5 +1,5 @@
 import regex from '@/const/regex';
-import Form from '@/components/forms/Form/Form';
+import Form from '@/components/Form/Form';
 import {useFormContext} from 'react-hook-form';
 
 export interface EmailValues {

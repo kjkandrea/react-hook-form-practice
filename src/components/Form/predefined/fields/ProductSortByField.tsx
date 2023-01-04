@@ -1,6 +1,6 @@
-import Form from '@/components/forms/Form/Form';
+import Form from '@/components/Form/Form';
 import {useFormContext} from 'react-hook-form';
-import {Option} from '@/components/forms/Form/FormSelect';
+import {Option} from '@/components/Form/FormSelect';
 
 export type ProductSortBy =
   | 'registered_date'

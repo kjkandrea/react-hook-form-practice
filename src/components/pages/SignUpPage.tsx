@@ -1,7 +1,7 @@
-import Form from '@/components/forms/Form/Form';
+import Form from '@/components/Form/Form';
 import {SubmitHandler, useForm, FormProvider} from 'react-hook-form';
-import {EmailValues} from '@/components/forms/predefined/fields/EmailField';
-import {RegisterPasswordValues} from '@/components/forms/predefined/fieldSets/RegisterPasswordFieldSet';
+import {EmailValues} from '@/components/Form/predefined/fields/EmailField';
+import {RegisterPasswordValues} from '@/components/Form/predefined/fieldSets/RegisterPasswordFieldSet';
 
 type SignUpFormValues = EmailValues & RegisterPasswordValues;
 

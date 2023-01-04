@@ -1,7 +1,7 @@
-import Form from '@/components/forms/Form/Form';
+import Form from '@/components/Form/Form';
 import {SubmitHandler, useForm, FormProvider} from 'react-hook-form';
-import {EmailValues} from '@/components/forms/predefined/fields/EmailField';
-import {PasswordValues} from '@/components/forms/predefined/fields/PasswordField';
+import {EmailValues} from '@/components/Form/predefined/fields/EmailField';
+import {PasswordValues} from '@/components/Form/predefined/fields/PasswordField';
 
 type SignInFormValues = EmailValues & PasswordValues;
 

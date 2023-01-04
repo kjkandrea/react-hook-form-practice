@@ -1,14 +1,14 @@
-import Form from '@/components/forms/Form/Form';
+import Form from '@/components/Form/Form';
 import {SubmitHandler, useForm, FormProvider} from 'react-hook-form';
-import {ProductNameValues} from '@/components/forms/predefined/fields/ProductNameField';
+import {ProductNameValues} from '@/components/Form/predefined/fields/ProductNameField';
 import {
   SortOrder,
   SortOrderValues,
-} from '@/components/forms/predefined/fields/SortOrderField';
+} from '@/components/Form/predefined/fields/SortOrderField';
 import {
   ProductSortBy,
   ProductSortByValues,
-} from '@/components/forms/predefined/fields/ProductSortByField';
+} from '@/components/Form/predefined/fields/ProductSortByField';
 import {createEnumParam, StringParam, useQueryParams} from 'use-query-params';
 import {omitEmptyQuery} from '@/utils/omitNil';
 

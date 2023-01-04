@@ -1,8 +1,8 @@
-import Form from '@/components/forms/Form/Form';
+import Form from '@/components/Form/Form';
 import {useFormContext} from 'react-hook-form';
 import PasswordField, {
   PasswordValues,
-} from '@/components/forms/predefined/fields/PasswordField';
+} from '@/components/Form/predefined/fields/PasswordField';
 
 export interface RegisterPasswordValues extends PasswordValues {
   confirmPassword: string;

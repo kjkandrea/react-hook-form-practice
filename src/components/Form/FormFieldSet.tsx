@@ -1,5 +1,5 @@
 import {FormHTMLAttributes, ReactNode} from 'react';
-import FormInput from '@/components/forms/Form/FormInput';
+import FormInput from '@/components/Form/FormInput';
 
 interface FormFieldSetProps extends FormHTMLAttributes<HTMLFieldSetElement> {
   children: ReactNode;
