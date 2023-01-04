@@ -5,6 +5,7 @@ import EmailField from '@/components/forms/predefined/fields/EmailField';
 import FormFieldSet from '@/components/forms/Form/FormFieldSet';
 import RegisterPasswordFieldSet from '@/components/forms/predefined/fieldSets/RegisterPasswordFieldSet';
 import PasswordField from '@/components/forms/predefined/fields/PasswordField';
+import ProductNameField from '@/components/forms/predefined/fields/ProductNameField';
 
 interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children: ReactNode;
@@ -21,5 +22,7 @@ Form.FieldSet = FormFieldSet;
 Form.PasswordField = PasswordField;
 Form.EmailField = EmailField;
 Form.RegisterPasswordFieldSet = RegisterPasswordFieldSet;
+
+Form.ProductNameField = ProductNameField;
 
 export default Form;
