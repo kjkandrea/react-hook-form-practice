@@ -1,9 +1,10 @@
 import Form from '@/components/forms/Form/Form';
 import {useFormContext} from 'react-hook-form';
-import regex from '@/const/regex';
+import PasswordInput, {
+  PasswordValues,
+} from '@/components/forms/predefined/fields/PasswordInput';
 
-export interface RegisterPasswordValues {
-  password: string;
+export interface RegisterPasswordValues extends PasswordValues {
   confirmPassword: string;
 }
 
@@ -16,33 +17,12 @@ export default function RegisterPasswordFieldSet() {
 
   return (
     <Form.FieldSet name="register-password">
-      <Form.Input
-        id="password"
-        type="password"
-        label="비밀번호"
-        placeholder="******"
-        {...register('password', {
-          required: '비밀번호를 입력하여주세요. 🙏',
-          pattern: {
-            value: regex.password,
-            message: '숫자, 영문, 특수문자 를 조합하여 입력하여주세요. 🙏',
-          },
-          minLength: {
-            value: 8,
-            message: '8자 이상 입력하여 주세요. 🙏',
-          },
-          maxLength: {
-            value: 20,
-            message: '20자 이하로 입력하여 주세요. 🙏',
-          },
-        })}
-        helperText={errors.password?.message}
-      />
+      <PasswordInput label="비밀번호" />
       <Form.Input
         id="confirm-password"
         type="password"
         label="비밀번호 확인"
-        placeholder="******"
+        placeholder="********"
         {...register('confirmPassword', {
           validate: value =>
             value === getValues('password') ||
