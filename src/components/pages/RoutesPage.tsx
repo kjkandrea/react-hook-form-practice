@@ -4,8 +4,17 @@ import {NavLink} from 'react-router-dom';
 export default function RoutesPage() {
   return (
     <div className="App">
+      <h1>📝 Pages</h1>
       <section>
-        <h2>📝 Pages</h2>
+        <h2>Query Form</h2>
+        <ul>
+          <li>
+            <NavLink to="/search-products">Search Products</NavLink>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Post Form</h2>
         <ul>
           <li>
             <NavLink to="/sign-in">Sign In</NavLink>
