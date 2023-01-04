@@ -10,7 +10,11 @@ type SearchProductsQueryValues = ProductNameValues &
 
 export default function SearchProductsPage() {
   const methods = useForm<SearchProductsQueryValues>({
-    mode: 'onSubmit',
+    mode: 'onBlur',
+    defaultValues: {
+      productSortBy: 'registered_date',
+      sortOrder: 'asc',
+    },
   });
 
   const onSubmit: SubmitHandler<SearchProductsQueryValues> = data =>
