@@ -4,20 +4,17 @@ import {ProductNameValues} from '@/components/Form/predefined/fields/ProductName
 import {
   SortOrder,
   sortOrderOptions,
-  SortOrderValues,
 } from '@/components/Form/predefined/fields/SortOrderField';
 import {
   ProductSortBy,
   productSortByOptions,
-  ProductSortByValues,
 } from '@/components/Form/predefined/fields/ProductSortByField';
 import {createEnumParam, StringParam, useQueryParams} from 'use-query-params';
 import {omitEmptyQuery} from '@/utils/omitEmptyQuery';
 import {pluck} from '@/utils/pluck';
+import {ProductSortValues} from '@/components/Form/predefined/fieldSets/ProductSortFieldSet';
 
-type SearchProductsQueryValues = ProductNameValues &
-  ProductSortByValues &
-  SortOrderValues;
+type SearchProductsQueryValues = ProductNameValues & ProductSortValues;
 
 export default function SearchProductsPage() {
   const [queryParams, setQueryParams] = useQueryParams({
@@ -46,8 +43,7 @@ export default function SearchProductsPage() {
         <h1>Search Products</h1>
         <Form onSubmit={methods.handleSubmit(onSubmit)} noValidate>
           <Form.ProductNameField />
-          <Form.ProductSortByField />
-          <Form.OrderByField />
+          <Form.ProductSortFieldSet />
           <Form.Button type="submit">검색</Form.Button>
         </Form>
       </div>
