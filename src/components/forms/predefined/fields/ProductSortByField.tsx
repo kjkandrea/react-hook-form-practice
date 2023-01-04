@@ -2,7 +2,7 @@ import Form from '@/components/forms/Form/Form';
 import {useFormContext} from 'react-hook-form';
 import {Option} from '@/components/forms/Form/FormSelect';
 
-type ProductSortBy =
+export type ProductSortBy =
   | 'registered_date'
   | 'name'
   | 'amount'

@@ -16,6 +16,7 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
+    "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.41.3",
@@ -24,6 +25,7 @@
     "use-query-params": "^2.1.2"
   },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.6",
     "@types/node": "^14.11.2",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",

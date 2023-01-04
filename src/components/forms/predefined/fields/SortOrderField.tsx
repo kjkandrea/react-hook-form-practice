@@ -2,7 +2,7 @@ import Form from '@/components/forms/Form/Form';
 import {useFormContext} from 'react-hook-form';
 import {Option} from '@/components/forms/Form/FormSelect';
 
-type SortOrder = 'asc' | 'desc';
+export type SortOrder = 'asc' | 'desc';
 
 export interface SortOrderValues {
   sortOrder: SortOrder;
