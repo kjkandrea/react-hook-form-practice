@@ -19,6 +19,7 @@ export default function SearchProductsPage() {
         <h1>Search Products</h1>
         <Form onSubmit={methods.handleSubmit(onSubmit)} noValidate>
           <Form.ProductNameField />
+          <Form.ProductSortByField />
           <Form.OrderByField />
           상품 카테고리, 재고 수<Form.Button type="submit">검색</Form.Button>
         </Form>

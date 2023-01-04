@@ -8,6 +8,7 @@ import PasswordField from '@/components/forms/predefined/fields/PasswordField';
 import ProductNameField from '@/components/forms/predefined/fields/ProductNameField';
 import FormSelect from '@/components/forms/Form/FormSelect';
 import SortOrderField from '@/components/forms/predefined/fields/SortOrderField';
+import ProductSortByField from '@/components/forms/predefined/fields/ProductSortByField';
 
 interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children: ReactNode;
@@ -25,8 +26,9 @@ Form.FieldSet = FormFieldSet;
 Form.PasswordField = PasswordField;
 Form.EmailField = EmailField;
 Form.RegisterPasswordFieldSet = RegisterPasswordFieldSet;
+Form.OrderByField = SortOrderField;
 
 Form.ProductNameField = ProductNameField;
-Form.OrderByField = SortOrderField;
+Form.ProductSortByField = ProductSortByField;
 
 export default Form;
