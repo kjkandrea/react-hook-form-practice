@@ -17,10 +17,7 @@ interface FormSelectProps<T> extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 function FormSelect<
-  ValueType extends Extract<
-    OptionHTMLAttributes<HTMLOptionElement>['value'],
-    'string' | 'number'
-  >
+  ValueType extends OptionHTMLAttributes<HTMLOptionElement>['value']
 >(
   {label, id, options, helperText, ...rest}: FormSelectProps<ValueType>,
   ref: Ref<HTMLSelectElement>
@@ -29,8 +26,8 @@ function FormSelect<
     <div>
       {label && <label htmlFor={id}>{label}</label>}
       <select id={id} ref={ref} {...rest}>
-        {options.map(({label, value}) => (
-          <option value={value} key={value}>
+        {options.map(({label, value}, index) => (
+          <option value={value} key={index}>
             {label}
           </option>
         ))}

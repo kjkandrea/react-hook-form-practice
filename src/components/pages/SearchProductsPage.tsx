@@ -1,9 +1,9 @@
 import Form from '@/components/forms/Form/Form';
 import {SubmitHandler, useForm, FormProvider} from 'react-hook-form';
+import {ProductNameValues} from '@/components/forms/predefined/fields/ProductNameField';
+import {SortOrderValues} from '@/components/forms/predefined/fields/SortOrderField';
 
-interface SearchProductsQueryValues {
-  foo: 'bar';
-}
+type SearchProductsQueryValues = ProductNameValues & SortOrderValues;
 
 export default function SearchProductsPage() {
   const methods = useForm<SearchProductsQueryValues>({
