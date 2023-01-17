@@ -10,6 +10,7 @@ import SearchProductsPage from '@/components/pages/SearchProductsPage';
 import RoutesPage from '@/components/pages/RoutesPage';
 import {QueryParamProvider} from 'use-query-params';
 import {ReactRouter6Adapter} from 'use-query-params/adapters/react-router-6';
+import HandmadeSignIn from '@/components/pages/HandmadeSignInPage';
 
 const routes = [
   {
@@ -23,6 +24,12 @@ const routes = [
   {
     path: '/sign-in',
     element: <SignInPage />,
+    children: [
+      {
+        path: '/sign-in/handmade',
+        element: <HandmadeSignIn />,
+      },
+    ],
   },
   {
     path: '/sign-up',
@@ -35,8 +42,13 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <BrowserRouter>
       <QueryParamProvider adapter={ReactRouter6Adapter}>
         <Routes>
-          {routes.map(({path, element}, index) => (
-            <Route path={path} element={element} key={index} />
+          {routes.map(({path, element, children}) => (
+            <>
+              <Route path={path} element={element} key={path} />
+              {children?.map(({path, element}) => (
+                <Route path={path} element={element} key={path} />
+              ))}
+            </>
           ))}
         </Routes>
       </QueryParamProvider>

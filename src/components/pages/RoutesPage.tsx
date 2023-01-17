@@ -24,6 +24,14 @@ export default function RoutesPage() {
           </li>
         </ul>
       </section>
+      <section>
+        <h2>Handmade Post Form</h2>
+        <ul>
+          <li>
+            <NavLink to="/sign-in/handmade">Sign In</NavLink>
+          </li>
+        </ul>
+      </section>
     </div>
   );
 }
