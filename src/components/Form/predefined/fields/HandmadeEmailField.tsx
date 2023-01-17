@@ -17,7 +17,8 @@ export default function EmailField({onComplete}: HandmadeEmailFieldProps) {
     return true;
   };
 
-  const tryOnComplete = () => validation(value) && onComplete(value);
+  const tryOnComplete = () =>
+    validation(value) ? onComplete(value) : onComplete('');
 
   return (
     <>

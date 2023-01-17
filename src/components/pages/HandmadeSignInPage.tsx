@@ -35,7 +35,7 @@ export default function HandmadeSignIn() {
       <EmailField onComplete={email => setEmail(email)} />
       <PasswordField onComplete={password => setPassword(password)} />
       {serverErrorMessage}
-      <button type="submit">로그인</button>
+      <input type="submit" disabled={!(email && password)} value="로그인" />
     </form>
   );
 }
