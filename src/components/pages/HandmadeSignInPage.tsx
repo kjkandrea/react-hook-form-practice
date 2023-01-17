@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import EmailField from '@/components/Form/predefined/fields/HandmadeEmailField';
+import PasswordField from '@/components/Form/predefined/fields/HandmadePasswordField';
 
 function signInMutation() {
   return {
@@ -13,7 +15,6 @@ function signInMutation() {
 export default function HandmadeSignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [clientErrorMessage, setClientErrorMessage] = useState('');
 
   const {
     mutate,
@@ -23,16 +24,6 @@ export default function HandmadeSignIn() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!email.trim()) {
-      setClientErrorMessage('이메일을 입력하세요.');
-      return;
-    }
-
-    if (!password.trim()) {
-      setClientErrorMessage('비밀번호를 입력하세요.');
-      return;
-    }
-
     mutate({
       email,
       password,
@@ -41,19 +32,8 @@ export default function HandmadeSignIn() {
 
   return (
     <form onSubmit={e => handleSubmit(e)}>
-      <input
-        type="text"
-        name="email"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      {clientErrorMessage}
+      <EmailField onComplete={email => setEmail(email)} />
+      <PasswordField onComplete={password => setPassword(password)} />
       {serverErrorMessage}
       <button type="submit">로그인</button>
     </form>
