@@ -1,37 +1,27 @@
 import React, {useState} from 'react';
+import {FieldRegister} from '@/components/pages/HandmadeSignInPage';
 
-interface HandmadePasswordFieldProps {
-  onComplete: (value: string) => void;
+interface PasswordFieldProps {
+  register: FieldRegister;
 }
 
-export default function HandmadePasswordField({
-  onComplete,
-}: HandmadePasswordFieldProps) {
-  const [value, setValue] = useState('');
-  const [clientErrorMessage, setClientErrorMessage] = useState('');
-
-  const validation = (email: string): boolean => {
-    if (!email.trim()) {
-      setClientErrorMessage('패스워드를 입력하세요.');
-      return false;
-    }
-
-    return true;
-  };
-
-  const tryOnComplete = () =>
-    validation(value) ? onComplete(value) : onComplete('');
+export default function PasswordField({register}: PasswordFieldProps) {
+  const [guideMessage, setGuideMessage] = useState('');
 
   return (
     <>
       <input
         type="password"
-        name="password"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onBlur={() => tryOnComplete()}
+        {...register('password', (value: string) => {
+          if (!value.trim()) {
+            setGuideMessage('패스워드를 입력하세요.');
+            return false;
+          }
+
+          return true;
+        })}
       />
-      {clientErrorMessage}
+      {guideMessage}
     </>
   );
 }

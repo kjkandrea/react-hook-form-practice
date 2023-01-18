@@ -1,35 +1,27 @@
 import React, {useState} from 'react';
+import {FieldRegister} from '@/components/pages/HandmadeSignInPage';
 
-interface HandmadeEmailFieldProps {
-  onComplete: (value: string) => void;
+interface EmailFieldProps {
+  register: FieldRegister;
 }
 
-export default function EmailField({onComplete}: HandmadeEmailFieldProps) {
-  const [value, setValue] = useState('');
-  const [clientErrorMessage, setClientErrorMessage] = useState('');
-
-  const validation = (email: string): boolean => {
-    if (!email.trim()) {
-      setClientErrorMessage('이메일을 입력하세요.');
-      return false;
-    }
-
-    return true;
-  };
-
-  const tryOnComplete = () =>
-    validation(value) ? onComplete(value) : onComplete('');
+export default function EmailField({register}: EmailFieldProps) {
+  const [guideMessage, setGuideMessage] = useState('');
 
   return (
     <>
       <input
         type="email"
-        name="email"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onBlur={() => tryOnComplete()}
+        {...register('email', (value: string) => {
+          if (!value.trim()) {
+            setGuideMessage('이메일을 입력하세요.');
+            return false;
+          }
+
+          return true;
+        })}
       />
-      {clientErrorMessage}
+      {guideMessage}
     </>
   );
 }

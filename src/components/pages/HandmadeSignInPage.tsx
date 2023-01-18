@@ -1,41 +1,88 @@
-import React, {useState} from 'react';
+import React, {useRef} from 'react';
 import EmailField from '@/components/Form/predefined/fields/HandmadeEmailField';
 import PasswordField from '@/components/Form/predefined/fields/HandmadePasswordField';
 
-function signInMutation() {
+type FormField = {
+  validate: (value: string) => boolean;
+  value: string;
+};
+
+export type FieldRegister = (
+  fieldName: string,
+  validate: (value: string) => boolean
+) => {
+  name: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+function useForm<
+  FormValues extends {
+    [key: string]: string;
+  }
+>() {
+  const formFieldsRef = useRef<{
+    [key: string]: FormField;
+  }>({});
+
+  const register: FieldRegister = (fieldName, validate) => {
+    const field = {
+      validate,
+      value: '',
+    };
+    formFieldsRef.current = {
+      ...formFieldsRef.current,
+      [fieldName]: field,
+    };
+
+    return {
+      name: fieldName,
+      onChange: e => {
+        field.value = e.target.value;
+      },
+    };
+  };
+
+  const handleSubmit = (
+    e: React.FormEvent<HTMLFormElement>,
+    next: (result: FormValues) => void
+  ) => {
+    e.preventDefault();
+
+    const valid = Object.values(formFieldsRef.current).every(
+      ({validate, value}) => validate(value)
+    );
+
+    if (!valid) return;
+
+    const formValues = Object.entries(formFieldsRef.current).map(
+      ([fieldName, {value}]) => [fieldName, value]
+    );
+
+    next(Object.fromEntries(formValues));
+  };
+
   return {
-    mutate: ({email, password}: {email: string; password: string}) =>
-      console.log({email, password}),
-    error: {
-      message: '',
-    },
+    register,
+    handleSubmit,
   };
 }
 
 export default function HandmadeSignIn() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const {
-    mutate,
-    error: {message: serverErrorMessage},
-  } = signInMutation();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    mutate({
-      email,
-      password,
-    });
-  };
+  const {handleSubmit, register} = useForm<{
+    email: string;
+    password: string;
+  }>();
 
   return (
-    <form onSubmit={e => handleSubmit(e)}>
-      <EmailField onComplete={email => setEmail(email)} />
-      <PasswordField onComplete={password => setPassword(password)} />
-      {serverErrorMessage}
-      <input type="submit" disabled={!(email && password)} value="로그인" />
+    <form
+      onSubmit={e =>
+        handleSubmit(e, result => alert(JSON.stringify(result, null, 2)))
+      }
+      noValidate
+    >
+      <EmailField register={register} />
+      <PasswordField register={register} />
+      <input type="submit" value="로그인" />
     </form>
   );
 }
