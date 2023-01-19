@@ -2,10 +2,10 @@ import React, {useRef} from 'react';
 import EmailField from '@/components/Form/predefined/fields/HandmadeEmailField';
 import PasswordField from '@/components/Form/predefined/fields/HandmadePasswordField';
 
-type FormField = {
+interface FormField {
   validate: (value: string) => boolean;
   value: string;
-};
+}
 
 export type FieldRegister = (
   fieldName: string,
@@ -15,11 +15,7 @@ export type FieldRegister = (
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-function useForm<
-  FormValues extends {
-    [key: string]: string;
-  }
->() {
+function useForm<FormValues>() {
   const formFieldsRef = useRef<{
     [key: string]: FormField;
   }>({});
